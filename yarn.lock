@@ -2931,6 +2931,14 @@ react-native-drawer@^2.3.0:
   dependencies:
     tween-functions "^1.0.1"
 
+react-native-modal-dropdown@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-modal-dropdown/-/react-native-modal-dropdown-0.4.1.tgz#30b6ecab08683bf60723c46b3bd4960ca14694f1"
+
+react-native-swiper@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/react-native-swiper/-/react-native-swiper-1.5.4.tgz#a85535b5374ef8d605a7a720e447ac46816ac448"
+
 react-native@0.40.0:
   version "0.40.0"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.40.0.tgz#ca7b86a8e8fbc7653634ad47ca2ffd69fdf18ad5"
