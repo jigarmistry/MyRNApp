@@ -58,6 +58,10 @@ class MainPage extends Component {
             onPress={this.gotoPersonPage.bind(this)}>
           <Text style={{backgroundColor: 'yellow', color: 'green'}}>Person</Text>
         </TouchableHighlight>
+        <TouchableHighlight style={{backgroundColor: 'yellow', padding: 10, marginTop:10, marginBottom:10}}
+            onPress={this.gotoSearchPage.bind(this)}>
+          <Text style={{backgroundColor: 'yellow', color: 'green'}}>Search</Text>
+        </TouchableHighlight>
         <ModalDropdown
             options={['option 1', 'option 2']}
             dropdownStyle={styles.dropdown_2_dropdown}
@@ -70,6 +74,12 @@ class MainPage extends Component {
     this.props.navigator.push({
       id: 'PersonPage',
       name: 'Person',
+    });
+  }
+  gotoSearchPage() {
+    this.props.navigator.push({
+      id: 'SearchPage',
+      name: 'Search',
     });
   }
 }

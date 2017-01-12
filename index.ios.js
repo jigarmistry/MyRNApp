@@ -20,6 +20,7 @@ import Drawer from 'react-native-drawer';
 var MenuPage = require('./app/views/MenuPage');
 var MainPage = require('./app/views/MainPage');
 var PersonPage = require('./app/views/PersonPage');
+var SearchPage = require('./app/views/SearchPage');
 
 export default class MyApp extends Component {
 
@@ -27,9 +28,14 @@ export default class MyApp extends Component {
     drawerOpen: false,
     drawerDisabled: false,
   };
-  closeDrawer = () => {
+  onMenuItemSelected = (item) => {
     this._drawer.close()
-  };
+    alert(JSON.stringify(this._navigator.getCurrentRoutes()));
+    this._navigator.push({
+      id: 'PersonPage',
+      name: 'Person',
+    });
+  }
   openDrawer = () => {
     this._drawer.open()
   };
@@ -40,7 +46,7 @@ export default class MyApp extends Component {
         ref={(ref) => this._drawer = ref}
         type="static"
         content={
-          <MenuPage closeDrawer={this.closeDrawer} />
+          <MenuPage onItemSelected={this.onMenuItemSelected} />
         }
         acceptDoubleTap
         styles={{main: {shadowColor: '#000000', shadowOpacity: 0.3, shadowRadius: 10}}}
@@ -64,6 +70,7 @@ export default class MyApp extends Component {
         negotiatePan
         >
       <Navigator
+          ref={(ref) => this._navigator = ref}
           initialRoute={{id: 'MainPage', name: 'Index'}}
           renderScene={this.renderScene.bind(this)}
           configureScene={(route) => {
@@ -86,6 +93,12 @@ export default class MyApp extends Component {
     if (routeId === 'PersonPage') {
       return (
         <PersonPage
+          navigator={navigator} />
+      );
+    }
+    if (routeId === 'SearchPage') {
+      return (
+        <SearchPage
           navigator={navigator} />
       );
     }

@@ -13,17 +13,28 @@ import {
 
 class MenuPage extends Component {
   static propTypes = {
-    closeDrawer: PropTypes.func.isRequired
+    onItemSelected: PropTypes.func.isRequired
   };
 
   render() {
-    let {closeDrawer} = this.props
+
     return (
       <ScrollView style={styles.container}>
         <Text style={styles.controlText}>Control Panel</Text>
-        <TouchableOpacity style={styles.button} onPress={closeDrawer}>
+        <TouchableOpacity style={styles.button} onPress={() => this.props.onItemSelected('Close')}>
           <Text>Close Drawer</Text>
         </TouchableOpacity>
+        <Text style={styles.controlText}>Home</Text>
+        <Text
+          onPress={() => this.props.onItemSelected('About')}
+          style={styles.item}>
+          About
+        </Text>
+        <Text
+          onPress={() => this.props.onItemSelected('Contacts')}
+          style={styles.item}>
+          Contacts
+        </Text>
       </ScrollView>
     )
   }
@@ -43,6 +54,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     padding: 10,
+  },
+  item: {
+    fontSize: 14,
+    fontWeight: '300',
+    paddingTop: 5,
   }
 })
 
