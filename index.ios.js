@@ -21,6 +21,7 @@ var MenuPage = require('./app/views/MenuPage');
 var MainPage = require('./app/views/MainPage');
 var PersonPage = require('./app/views/PersonPage');
 var SearchPage = require('./app/views/SearchPage');
+var PharseListPage = require('./app/views/PharseListPage');
 
 export default class MyApp extends Component {
 
@@ -30,11 +31,11 @@ export default class MyApp extends Component {
   };
   onMenuItemSelected = (item) => {
     this._drawer.close()
-    alert(JSON.stringify(this._navigator.getCurrentRoutes()));
     this._navigator.push({
       id: 'PersonPage',
       name: 'Person',
     });
+    alert(JSON.stringify(this._navigator.getCurrentRoutes()));
   }
   openDrawer = () => {
     this._drawer.open()
@@ -99,6 +100,12 @@ export default class MyApp extends Component {
     if (routeId === 'SearchPage') {
       return (
         <SearchPage
+          navigator={navigator} />
+      );
+    }
+    if (routeId === 'PharseListPage') {
+      return (
+        <PharseListPage
           navigator={navigator} />
       );
     }
